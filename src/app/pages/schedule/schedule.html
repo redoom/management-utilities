@@ -1,0 +1,584 @@
+<!-- <ion-header>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
+      <ion-segment-button value="all">
+        All
+      </ion-segment-button>
+      <ion-segment-button value="favorites">
+        Favorites
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Market info of SR products</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="presentFilter()">
+        <span *ngIf="ios">Filter</span>
+        <span *ngIf="!ios">
+          <ion-icon slot="icon-only" name="options"></ion-icon>
+        </span>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+
+
+
+    <ion-row class="products">
+        <ion-card class="data">
+            <ion-card-header>
+             SR-3000 data
+            </ion-card-header>
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row class="dataRow">
+                      <ion-col>
+                        <div>
+                          
+                        </div>
+                      </ion-col>
+                      <ion-col>
+                        <div>
+                          P1
+                        </div>
+                      </ion-col>
+                      <ion-col>
+                        <div>
+                          P2
+                        </div>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row class="dataRow">
+                        <ion-col>
+                          <div>
+                            Price
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div>
+                            {{productsData[0].oldData.price}}
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div>
+                              <ion-input class="litlebox" type="text" [(ngModel)]="productsData[0].newData.price" name="title"></ion-input>
+                          </div>
+                        </ion-col>
+                    </ion-row>
+
+                      <ion-row class="dataRow">
+                          <ion-col>
+                            <div>
+                                PriceIndex
+                            </div>
+                          </ion-col>
+                          <ion-col>
+                            <div>
+                                {{productsData[0].oldData.priceIndex}}
+                            </div>
+                          </ion-col>
+                          <ion-col>
+                            <div>
+                                {{(productsData[0].newData.priceIndex * productsData[0].oldData.price / productsData[0].newData.price).toFixed(2)}}
+                            </div>
+                          </ion-col>
+                      </ion-row>
+
+                        <ion-row class="dataRow">
+                            <ion-col>
+                              <div>
+                                  Quality
+                              </div>
+                            </ion-col>
+                            <ion-col>
+                              <div>
+                                {{productsData[0].oldData.quality}}
+                              </div>
+                            </ion-col>
+                            <ion-col>
+                              <div>
+                                  <ion-input class="litlebox" type="text" [(ngModel)]="productsData[0].newData.quality" name="title"></ion-input>
+                              </div>
+                            </ion-col>
+                        </ion-row>
+
+                          <ion-row class="dataRow">
+                              <ion-col>
+                                <div>
+                                    Marketing
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                  {{productsData[0].oldData.marketing}}
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                    <ion-input class="litlebox" type="text" [(ngModel)]="productsData[0].newData.marketing" name="title"></ion-input>
+                                </div>
+                              </ion-col>
+                          </ion-row>
+
+                          <ion-row class="dataRow">
+                              <ion-col>
+                                <div>
+                                    Sales
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                  {{productsData[0].oldData.sales}}
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                    <ion-input class="litlebox" type="text" [(ngModel)]="productsData[0].newData.sales" name="title"></ion-input>
+                                </div>
+                              </ion-col>
+                          </ion-row>
+
+                </ion-grid>    
+            </ion-card-content>
+          </ion-card>
+    
+        <ion-card class="doughnutcharct">
+          <ion-card-header>
+              SR-3000 preferences
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #doughnutCanvas1></canvas>
+          </ion-card-content>
+        </ion-card>
+    </ion-row>
+
+    <ion-row class="products">
+        <ion-card class="data">
+            <ion-card-header>
+                SR-3450 data
+            </ion-card-header>
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row class="dataRow">
+                      <ion-col>
+                        <div>
+                          
+                        </div>
+                      </ion-col>
+                      <ion-col>
+                        <div>
+                          P1
+                        </div>
+                      </ion-col>
+                      <ion-col>
+                        <div>
+                          P2
+                        </div>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row class="dataRow">
+                        <ion-col>
+                          <div>
+                            Price
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div>
+                            {{productsData[1].oldData.price}}
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div>
+                              <ion-input class="litlebox" type="text" [(ngModel)]="productsData[1].newData.price" name="title"></ion-input>
+                          </div>
+                        </ion-col>
+                    </ion-row>
+
+                      <ion-row class="dataRow">
+                          <ion-col>
+                            <div>
+                                PriceIndex
+                            </div>
+                          </ion-col>
+                          <ion-col>
+                            <div>
+                                {{productsData[1].oldData.priceIndex}}
+                            </div>
+                          </ion-col>
+                          <ion-col>
+                            <div>
+                                {{(productsData[1].newData.priceIndex * productsData[1].oldData.price / productsData[1].newData.price).toFixed(2)}}
+                            </div>
+                          </ion-col>
+                      </ion-row>
+
+                        <ion-row class="dataRow">
+                            <ion-col>
+                              <div>
+                                  Quality
+                              </div>
+                            </ion-col>
+                            <ion-col>
+                              <div>
+                                {{productsData[1].oldData.quality}}
+                              </div>
+                            </ion-col>
+                            <ion-col>
+                              <div>
+                                  <ion-input class="litlebox" type="text" [(ngModel)]="productsData[1].newData.quality" name="title"></ion-input>
+                              </div>
+                            </ion-col>
+                        </ion-row>
+
+                          <ion-row class="dataRow">
+                              <ion-col>
+                                <div>
+                                    Marketing
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                  {{productsData[1].oldData.marketing}}
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                    <ion-input class="litlebox" type="text" [(ngModel)]="productsData[1].newData.marketing" name="title"></ion-input>
+                                </div>
+                              </ion-col>
+                          </ion-row>
+
+                          <ion-row class="dataRow">
+                              <ion-col>
+                                <div>
+                                    Sales
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                  {{productsData[1].oldData.sales}}
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                    <ion-input class="litlebox" type="text" [(ngModel)]="productsData[1].newData.sales" name="title"></ion-input>
+                                </div>
+                              </ion-col>
+                          </ion-row>
+
+                </ion-grid>
+            </ion-card-content>
+          </ion-card>
+    
+        <ion-card class="doughnutcharct">
+          <ion-card-header>
+              SR-3450 preferences
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #doughnutCanvas2></canvas>
+          </ion-card-content>
+        </ion-card>
+    </ion-row>
+
+    <ion-row class="products">
+        <ion-card class="data">
+            <ion-card-header>
+                SR-4300 data
+            </ion-card-header>
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row class="dataRow">
+                      <ion-col>
+                        <div>
+                          
+                        </div>
+                      </ion-col>
+                      <ion-col>
+                        <div>
+                          P1
+                        </div>
+                      </ion-col>
+                      <ion-col>
+                        <div>
+                          P2
+                        </div>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row class="dataRow">
+                        <ion-col>
+                          <div>
+                            Price
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div>
+                            {{productsData[2].oldData.price}}
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div>
+                              <ion-input class="litlebox" type="text" [(ngModel)]="productsData[2].newData.price" name="title"></ion-input>
+                          </div>
+                        </ion-col>
+                    </ion-row>
+
+                      <ion-row class="dataRow">
+                          <ion-col>
+                            <div>
+                                PriceIndex
+                            </div>
+                          </ion-col>
+                          <ion-col>
+                            <div>
+                                {{productsData[2].oldData.priceIndex}}
+                            </div>
+                          </ion-col>
+                          <ion-col>
+                            <div>
+                                {{(productsData[2].newData.priceIndex * productsData[2].oldData.price / productsData[2].newData.price).toFixed(2)}}
+                            </div>
+                          </ion-col>
+                      </ion-row>
+
+                        <ion-row class="dataRow">
+                            <ion-col>
+                              <div>
+                                  Quality
+                              </div>
+                            </ion-col>
+                            <ion-col>
+                              <div>
+                                {{productsData[2].oldData.quality}}
+                              </div>
+                            </ion-col>
+                            <ion-col>
+                              <div>
+                                  <ion-input class="litlebox" type="text" [(ngModel)]="productsData[2].newData.quality" name="title"></ion-input>
+                              </div>
+                            </ion-col>
+                        </ion-row>
+
+                          <ion-row class="dataRow">
+                              <ion-col>
+                                <div>
+                                    Marketing
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                  {{productsData[2].oldData.marketing}}
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                    <ion-input class="litlebox" type="text" [(ngModel)]="productsData[2].newData.marketing" name="title"></ion-input>
+                                </div>
+                              </ion-col>
+                          </ion-row>
+
+                          <ion-row class="dataRow">
+                              <ion-col>
+                                <div>
+                                    Sales
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                  {{productsData[2].oldData.sales}}
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                    <ion-input class="litlebox" type="text" [(ngModel)]="productsData[2].newData.sales" name="title"></ion-input>
+                                </div>
+                              </ion-col>
+                          </ion-row>
+
+                </ion-grid>
+            </ion-card-content>
+          </ion-card>
+    
+        <ion-card class="doughnutcharct">
+          <ion-card-header>
+              SR-4300 preferences
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #doughnutCanvas3></canvas>
+          </ion-card-content>
+        </ion-card>
+    </ion-row>
+
+    <ion-row class="products">
+        <ion-card class="data">
+            <ion-card-header>
+                SR-9000 data
+            </ion-card-header>
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row class="dataRow">
+                      <ion-col>
+                        <div>
+                          
+                        </div>
+                      </ion-col>
+                      <ion-col>
+                        <div>
+                          P1
+                        </div>
+                      </ion-col>
+                      <ion-col>
+                        <div>
+                          P2
+                        </div>
+                      </ion-col>
+                    </ion-row>
+
+                    <ion-row class="dataRow">
+                        <ion-col>
+                          <div>
+                            Price
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div>
+                            {{productsData[3].oldData.price}}
+                          </div>
+                        </ion-col>
+                        <ion-col>
+                          <div>
+                              <ion-input class="litlebox" type="text" [(ngModel)]="productsData[3].newData.price" name="title"></ion-input>
+                          </div>
+                        </ion-col>
+                    </ion-row>
+
+                      <ion-row class="dataRow">
+                          <ion-col>
+                            <div>
+                                PriceIndex
+                            </div>
+                          </ion-col>
+                          <ion-col>
+                            <div>
+                                {{productsData[3].oldData.priceIndex}}
+                            </div>
+                          </ion-col>
+                          <ion-col>
+                            <div>
+                                {{(productsData[3].newData.priceIndex * productsData[3].oldData.price / productsData[3].newData.price).toFixed(2)}}
+                            </div>
+                          </ion-col>
+                      </ion-row>
+
+                        <ion-row class="dataRow">
+                            <ion-col>
+                              <div>
+                                  Quality
+                              </div>
+                            </ion-col>
+                            <ion-col>
+                              <div>
+                                {{productsData[3].oldData.quality}}
+                              </div>
+                            </ion-col>
+                            <ion-col>
+                              <div>
+                                  <ion-input class="litlebox" type="text" [(ngModel)]="productsData[3].newData.quality" name="title"></ion-input>
+                              </div>
+                            </ion-col>
+                        </ion-row>
+
+                          <ion-row class="dataRow">
+                              <ion-col>
+                                <div>
+                                    Marketing
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                  {{productsData[3].oldData.marketing}}
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                    <ion-input class="litlebox" type="text" [(ngModel)]="productsData[3].newData.marketing" name="title"></ion-input>
+                                </div>
+                              </ion-col>
+                          </ion-row>
+
+                          <ion-row class="dataRow">
+                              <ion-col>
+                                <div>
+                                    Sales
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                  {{productsData[3].oldData.sales}}
+                                </div>
+                              </ion-col>
+                              <ion-col>
+                                <div>
+                                    <ion-input class="litlebox" type="text" [(ngModel)]="productsData[3].newData.sales" name="title"></ion-input>
+                                </div>
+                              </ion-col>
+                          </ion-row>
+
+                </ion-grid>
+            </ion-card-content>
+          </ion-card>
+    
+        <ion-card class="doughnutcharct">
+          <ion-card-header>
+              SR-9000 preferences
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #doughnutCanvas4></canvas>
+          </ion-card-content>
+        </ion-card>
+    </ion-row>
+
+
+
+    <!--<ion-card class="linecharct">
+      <ion-card-header>
+        preferences
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #lineCanvas></canvas>
+      </ion-card-content>
+    </ion-card>-->
+
+    <ion-card class="barcharct">
+        <ion-card-header>
+          Market numbers
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #barCanvas1></canvas>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card class="barcharct">
+        <ion-card-header>
+            Market numbers
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #barCanvas2></canvas>
+        </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>

@@ -1,0 +1,47 @@
+$categories: (
+  ionic: var(--ion-color-primary),
+  angular: #ac282b,
+  communication: #8e8d93,
+  tooling: #fe4c52,
+  services: #fd8b2d,
+  design: #fed035,
+  workshop: #69bb7b,
+  food: #3bc7c4,
+  documentation: #b16be3,
+  navigation: #6600cc
+);
+
+@each $track, $value in map-remove($categories) {
+  ion-item-sliding[track='#{$track}'] ion-label {
+    border-left: 2px solid $value;
+    padding-left: 10px;
+  }
+}
+
+.barcharct{
+  width: 48%;
+  display: inline-block;
+}
+.doughnutcharct{
+  width: 46%; 
+  display: inline-block;
+}
+.linecharct{
+  max-width: 99%;
+}
+
+.data{
+  width: 45%;
+  display: inline-block;
+  font-weight: 300;
+}
+.dataRow{
+
+}
+
+.litlebox{
+  border: solid 1px black;
+  height: 30px;
+  width: 40%;
+  border-radius: 10%;
+}
