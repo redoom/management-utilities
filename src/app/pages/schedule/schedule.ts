@@ -19,12 +19,12 @@ export class SchedulePage implements OnInit {
   @ViewChild("barCanvas1" , { static: true }) barCanvas1;
   @ViewChild("barCanvas2" , { static: true }) barCanvas2;
 
-  @ViewChild("doughnutCanvas1" , { static: true }) doughnutCanvas1: ElementRef;
-  @ViewChild("doughnutCanvas2" , { static: true }) doughnutCanvas2: ElementRef;
-  @ViewChild("doughnutCanvas3" , { static: true }) doughnutCanvas3: ElementRef;
-  @ViewChild("doughnutCanvas4" , { static: true }) doughnutCanvas4: ElementRef;
+  @ViewChild("doughnutCanvas1" , { static: true }) doughnutCanvas1;
+  @ViewChild("doughnutCanvas2" , { static: true }) doughnutCanvas2;
+  @ViewChild("doughnutCanvas3" , { static: true }) doughnutCanvas3;
+  @ViewChild("doughnutCanvas4" , { static: true }) doughnutCanvas4;
 
-  @ViewChild("lineCanvas" , { static: true }) lineCanvas: ElementRef;
+  @ViewChild("lineCanvas" , { static: true }) lineCanvas;
 
   ios: boolean;
   dayIndex = 0;

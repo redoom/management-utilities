@@ -20,25 +20,21 @@ import { UserData } from './providers/user-data';
 export class AppComponent implements OnInit {
   appPages = [
     {
-      title: 'Schedule',
+      title: 'Market',
       url: '/app/tabs/schedule',
-      icon: 'calendar'
+      icon: 'podium'
     },
     {
-      title: 'Speakers',
-      url: '/app/tabs/speakers',
-      icon: 'contacts'
-    },
-    {
-      title: 'Map',
-      url: '/app/tabs/map',
-      icon: 'map'
-    },
-    {
-      title: 'About',
+      title: 'Order',
       url: '/app/tabs/about',
-      icon: 'information-circle'
+      icon: 'cart'
+    },
+    {
+      title: 'Balance-sheet',
+      url: '/app/tabs/map',
+      icon: 'paper'
     }
+
   ];
   loggedIn = false;
   dark = false;
