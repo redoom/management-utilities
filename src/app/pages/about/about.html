@@ -9,13 +9,89 @@
 
 <ion-content>
     <ion-card>
-        <ion-grid>
-            <ion-row>
-                <ion-col>
-                    P1
-                </ion-col>
-            </ion-row>
-        </ion-grid>
-    </ion-card>
-<ion-content>
+        <ion-card-header>
+            Orders
+        </ion-card-header>
+        
+        <ion-card-content>
+            <ion-grid *ngFor="let pr of productsData">
+                <ion-row>
+                    <ion-col>
+                        {{pr.oldData.name}}
+                    </ion-col>
+                    <ion-col>
+                        Previous(P1)
+                    </ion-col>
+                    <ion-col>
+                        This year(P2)
+                    </ion-col>
+                    <ion-col>
+                        Difference
+                    </ion-col>
+                </ion-row>
 
+                <ion-row>
+                    <ion-col>
+                        Inventory:
+                    </ion-col>
+                    <ion-col>
+                        {{pr.oldData.inventory}}
+                    </ion-col>
+                    <ion-col>
+                        {{pr.oldData.inventory + pr.oldData.order - pr.oldData.sales}}
+                    </ion-col>
+                    <ion-col>
+                        {{pr.oldData.inventory + pr.oldData.order - pr.oldData.sales - pr.oldData.inventory}}
+                    </ion-col>
+                </ion-row>  
+
+                <ion-row>
+                    <ion-col>
+                        Order:
+                    </ion-col>
+                    <ion-col>
+                        {{pr.oldData.order}}
+                    </ion-col>
+                    <ion-col>
+                        <ion-input class="litlebox" type="text" [(ngModel)]="pr.newData.order" name="title"></ion-input>
+                    </ion-col>
+                    <ion-col>
+                        {{pr.newData.order - pr.oldData.order }}
+                    </ion-col>
+                </ion-row>            
+
+                <ion-row>
+                    <ion-col>
+                        Sales:
+                    </ion-col>
+                    <ion-col>
+                        {{pr.oldData.sales}}
+                    </ion-col>
+                    <ion-col>
+                        <ion-input class="litlebox" type="text" [(ngModel)]="pr.newData.sales" name="title"></ion-input>
+                    </ion-col>
+                    <ion-col>
+                        {{pr.newData.sales - pr.oldData.sales }}
+                    </ion-col>
+                </ion-row> 
+
+                <ion-row>
+                    <ion-col>
+                        Left in Inventory:
+                    </ion-col>
+                    <ion-col>
+                        {{pr.oldData.inventory + pr.oldData.order - pr.oldData.sales}}
+                    </ion-col>
+                    <ion-col>
+                        {{(pr.oldData.inventory + pr.oldData.order - pr.oldData.sales) + (pr.newData.order - pr.newData.sales)}}
+                    </ion-col>
+                    <ion-col>
+                        {{(pr.oldData.inventory + pr.oldData.order - pr.oldData.sales) - ((pr.oldData.inventory + pr.oldData.order - pr.oldData.sales) + (pr.newData.order - pr.newData.sales))}}
+                    </ion-col>
+                </ion-row> 
+                <ion-row><hr></ion-row>
+                <hr>
+            </ion-grid>
+        </ion-card-content> 
+    </ion-card>
+</ion-content>

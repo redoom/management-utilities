@@ -1,13 +1,12 @@
-.about-info p {
-  color: var(--ion-color-dark);
-  text-align: left;
-}
 
-.about-info ion-icon {
-  margin-inline-end: 32px;
-}
-
-.ios .about-info {
+.litlebox{
+  border: solid 1px black;
+  height: 30px;
+  width: 22%;
+  border-radius: 5%;
   text-align: center;
 }
+hr { 
 
+  border-width: 1px;
+}
