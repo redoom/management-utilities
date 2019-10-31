@@ -94,4 +94,87 @@
             </ion-grid>
         </ion-card-content> 
     </ion-card>
+
+    <ion-card>
+            <ion-card-header>
+                Workers
+            </ion-card-header>
+            
+            <ion-card-content>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                        </ion-col>
+                        <ion-col>
+                            Previous(P1)
+                        </ion-col>
+                        <ion-col>
+                            This year(P2)
+                        </ion-col>
+                    </ion-row>
+    
+                    <ion-row>
+                        <ion-col>
+                            Workers opening:
+                        </ion-col>
+                        <ion-col>
+                            1000
+                        </ion-col>
+                        <ion-col>
+                            1085
+                        </ion-col>
+                    </ion-row>
+                      
+                    <ion-row>
+                        <ion-col>
+                            Workers fluctuation:
+                        </ion-col>
+                        <ion-col>
+                            2.5%
+                        </ion-col>
+                        <ion-col>
+                            2.8%
+                        </ion-col>
+                    </ion-row> 
+
+                    <ion-row>
+                        <ion-col>
+                            New hire:
+                        </ion-col>
+                        <ion-col>
+                            80
+                        </ion-col>
+                        <ion-col>
+                            <ion-input class="litlebox" type="text" [(ngModel)]="newhire" name="title"></ion-input>
+                        </ion-col>
+                    </ion-row> 
+
+                    <ion-row>
+                        <ion-col>
+                            Workers closing:
+                        </ion-col>
+                        <ion-col>
+                            1085
+                        </ion-col>
+                        <ion-col>
+                            {{(1085 - 1085 * 0.028 + newhire*1).toFixed(0)}}
+                        </ion-col>
+                    </ion-row> 
+
+                    <ion-row>
+                        <ion-col>
+                            Workers utilization:
+                        </ion-col>
+                        <ion-col>
+                            97.45%
+                        </ion-col>
+                        <ion-col>
+                            {{((1085 - 1085 * 0.028 + newhire*1)/1100).toFixed(2)}}
+                        </ion-col>
+                    </ion-row> 
+
+                </ion-grid>
+            </ion-card-content> 
+        </ion-card>
+
 </ion-content>

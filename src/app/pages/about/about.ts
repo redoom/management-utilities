@@ -13,10 +13,11 @@ export class AboutPage {
   conferenceDate = '2047-05-17';
 
   productsData: DataSet[] = [];
-
+  newhire : number;
   constructor() { }
 
   ngOnInit() {
+    this.newhire = 0;
     const product1old = new Data("SR-3000", 105, 70, 45.02, 12000, 50000, 8913, 500, 9000);
     const product1new = new Data("SR-3000", 105, 70, 45.02, 12000, 50000, 0, 0, 0);
     const product1 = new DataSet(product1old, product1new)
